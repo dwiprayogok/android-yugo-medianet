@@ -37,7 +37,7 @@ public class InputData extends AppCompatActivity {
             address=""
           ;
 
-    String url_insert = "http://103.253.113.42/thamrin_sales_pack/api/update.php";
+    String url_insert = "";
     String TAG = "InputData";
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
