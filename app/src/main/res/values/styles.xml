@@ -1,0 +1,43 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:windowFullscreen">true</item>
+
+
+    </style>
+
+    <style name="MyMaterialTheme.Base" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="windowNoTitle">true</item>
+        <item name="windowActionBar">false</item>
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/red_700</item>
+    </style>
+    <style name="MyEditText" parent="Theme.AppCompat.Light">
+
+        <item name="android:textColor">@color/black_1000</item>
+        <item name="android:textColorHint">@color/black_1000</item>
+        <item name="android:textSize">20sp</item>
+
+        <item name="colorAccent">@color/black_1000</item>
+        <item name="colorControlNormal">@color/black_1000</item>
+        <item name="colorControlActivated">@color/black_1000</item>
+    </style>
+
+
+    <style name="ThemeSpinner">
+        <!-- Color when pressed -->
+        <item name="colorAccent">@color/white_1000</item>
+        <!-- Default color for the dropdown arrow and line -->
+        <item name="colorControlNormal">@color/white_1000</item>
+    </style>
+</resources>
