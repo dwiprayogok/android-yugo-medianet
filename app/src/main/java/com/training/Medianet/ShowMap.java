@@ -3,7 +3,6 @@ package com.training.Medianet;
 import android.content.Context;
 import android.content.Intent;
 import android.location.Location;
-import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
 import android.provider.Settings;
@@ -31,16 +30,18 @@ import cn.pedant.SweetAlert.SweetAlertDialog;
  */
 public class ShowMap extends AppCompatActivity implements com.google.android.gms.location.LocationListener, GoogleApiClient.ConnectionCallbacks,
         GoogleApiClient.OnConnectionFailedListener{
-
+    String TAG = "ShowMap";
     private GoogleMap map;
     Marker cloc;
     Marker dloc;
+    Marker eloc;
     private GoogleApiClient googleApiClient;
     private LocationManager mLocationManager;
     Location currentLocation = new Location("current");
     GPSTracker gps;
     Double clongitude;
     Double clatitude;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -61,9 +62,9 @@ public class ShowMap extends AppCompatActivity implements com.google.android.gms
         {
             if(status == ConnectionResult.SUCCESS) {
                 //Success! Do what you want
-
+                setCustomMarkerOnePosition();
+                setCustomMarkerTwoPosition();
                 currentlocation();
-                //googleApiClient.connect();
                 connectGmapApiClient();
 
 
@@ -92,6 +93,8 @@ public class ShowMap extends AppCompatActivity implements com.google.android.gms
         }
 
     }
+
+
 
     private void connectGmapApiClient() {
 
@@ -124,11 +127,36 @@ public class ShowMap extends AppCompatActivity implements com.google.android.gms
             // Ask user to enable GPS/network in settings
             gps.showSettingsAlert();
         }
+
+
         moveMap();
+
+
+    }
+    private void setCustomMarkerOnePosition() {
+        LatLng latLng = new LatLng(-6.2400943, 106.7894802);
+        //-6.2400943  106.7894802
+        MarkerOptions mO = new MarkerOptions();
+        mO.position(latLng) //setting position
+                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN))
+                .title("Ini Posisi saya yang pertama");
+        dloc = map.addMarker(mO);
+        dloc.showInfoWindow();
 
     }
 
 
+
+    private  void setCustomMarkerTwoPosition() {
+        LatLng latLng = new LatLng(-6.3015369,106.7818858 );
+        MarkerOptions mO = new MarkerOptions();
+        mO.position(latLng) //setting position
+                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED))
+                .title("Ini Posisi saya yang Kedua");
+        eloc = map.addMarker(mO);
+        eloc.showInfoWindow();
+
+    }
 
     private void moveMap() {
 
